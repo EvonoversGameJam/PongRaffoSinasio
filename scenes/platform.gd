@@ -15,7 +15,7 @@ func _process(delta):
 	if Input.is_action_pressed("platform_down"):
 		self.position += _move_platform(direction, 0)
 	if Input.is_action_pressed("platform_up"):
-		self.position += _move_platform(direction, 180)	
+		self.position += _move_platform(direction, 180)
 	if Input.is_action_pressed("platform_rotate_left"):
 		self.rotation_degrees -= rotation_velocity * delta
 	if Input.is_action_pressed("platform_rotate_right"):
