@@ -8,6 +8,28 @@
 
 config_version=4
 
+_global_script_classes=[ {
+"base": "Node2D",
+"class": "Ball",
+"language": "GDScript",
+"path": "res://scenes/Ball.gd"
+}, {
+"base": "Node2D",
+"class": "Game",
+"language": "GDScript",
+"path": "res://scenes/Game.gd"
+}, {
+"base": "Node2D",
+"class": "Platform",
+"language": "GDScript",
+"path": "res://scenes/Platform.gd"
+} ]
+_global_script_class_icons={
+"Ball": "",
+"Game": "",
+"Platform": ""
+}
+
 [application]
 
 config/name="PongRaffoSinasio"
