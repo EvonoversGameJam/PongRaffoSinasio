@@ -32,6 +32,10 @@ func _move_platform(direction, degrees) -> Vector2:
 	
 
 func collides(point: Vector2) -> Vector2:
+	"""
+	Return bounce direction when point is within platform bounds.
+	Otherwise return a Vector2.ZERO
+	"""
 	var local_point := self.to_local(point)
 	
 	if (local_point.x <= self.bottom_right.position.x and
