@@ -10,7 +10,7 @@ position = Vector2( 1, 0 )
 script = ExtResource( 3 )
 
 [node name="Platform" parent="." instance=ExtResource( 1 )]
-position = Vector2( 683, 415 )
+position = Vector2( 512, 370 )
 velocity = 400
 rotation_velocity = 120
 
@@ -19,7 +19,7 @@ position = Vector2( 512, 314 )
 speed = 401
 
 [node name="Platform2" parent="." instance=ExtResource( 1 )]
-position = Vector2( 266, 409 )
+position = Vector2( 259, 371 )
 velocity = 400
 rotation_velocity = 120
 
