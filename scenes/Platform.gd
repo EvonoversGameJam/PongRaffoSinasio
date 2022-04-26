@@ -9,27 +9,27 @@ onready var top_left: Position2D = get_node("TopLeft")
 onready var bottom_right: Position2D = get_node("BottomRight")
 
 var _forward: Vector2 = Vector2.UP
-
+var _player_number = null
 
 func _process(delta: float) -> void:
-	var direction := (self.global_position - to_global(self._forward)).normalized()
-	if Input.is_action_pressed("platform_right"):
-		self.position += _move_platform(direction, -90)
-	if Input.is_action_pressed("platform_left"):
-		self.position += _move_platform(direction, 90)
-	if Input.is_action_pressed("platform_down"):
-		self.position += _move_platform(direction, 0)
-	if Input.is_action_pressed("platform_up"):
-		self.position += _move_platform(direction, 180)
-	if Input.is_action_pressed("platform_rotate_left"):
-		self.rotation_degrees -= rotation_velocity * delta
-	if Input.is_action_pressed("platform_rotate_right"):
-		self.rotation_degrees += rotation_velocity * delta
+	if _player_number != null:
+		var direction := (self.global_position - to_global(self._forward)).normalized()
+		if Input.is_action_pressed("platform_right"+_player_number):
+			self.position += _move_platform(direction, -90)
+		if Input.is_action_pressed("platform_left"+_player_number):
+			self.position += _move_platform(direction, 90)
+		if Input.is_action_pressed("platform_down"+_player_number):
+			self.position += _move_platform(direction, 0)
+		if Input.is_action_pressed("platform_up"+_player_number):
+			self.position += _move_platform(direction, 180)
+		if Input.is_action_pressed("platform_rotate_left"+_player_number):
+			self.rotation_degrees -= rotation_velocity * delta
+		if Input.is_action_pressed("platform_rotate_right"+_player_number):
+			self.rotation_degrees += rotation_velocity * delta
 
 
 func _move_platform(direction, degrees) -> Vector2:
 	return direction.rotated(deg2rad(degrees)) * self.velocity * get_process_delta_time()
-	
 
 func collides(point: Vector2) -> Vector2:
 	"""
@@ -54,3 +54,6 @@ func collides(point: Vector2) -> Vector2:
 		return bounce_direction
 	
 	return Vector2.ZERO
+
+func set_player_number(player_number):
+	self._player_number = player_number
