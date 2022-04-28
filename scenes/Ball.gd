@@ -8,8 +8,6 @@ onready var bottom: Position2D = get_node("Bottom")
 onready var left: Position2D = get_node("Left")
 onready var right: Position2D = get_node("Right")
 
-var top_bound := 0
-var bottom_bound := 600
 
 var direction := Vector2.ZERO
 

@@ -1,6 +1,8 @@
 extends Node2D
 class_name Game
 
+signal players_score(score_1, score_2)
+
 onready var platform_one: Platform = get_node("Platform")
 onready var platform_two: Platform = get_node("Platform2")
 
@@ -8,6 +10,9 @@ onready var ball: Ball = get_node("Ball")
 
 var _top_left := Vector2(0,0)
 var _bottom_right := Vector2(1024,600)
+
+var score_1 = 0
+var score_2 = 0
 
 func _ready():
 	platform_one.set_player_number('_one')
@@ -30,6 +35,13 @@ func _process(delta: float) -> void:
 	
 	if ball_left.x <= self._top_left.x or ball_right.x >= self._bottom_right.x:
 		self.ball.direction.x *= -1
+		if ball_left.x <= self._top_left.x:
+			score_2 += 1
+			emit_signal("players_score", score_1, score_2)
+		if 	ball_right.x >= self._bottom_right.x:
+			score_1 += 1
+			emit_signal("players_score", score_1, score_2)
+			
 
 
 func _check_collision(platform: Platform, ball_position: Vector2) -> void:

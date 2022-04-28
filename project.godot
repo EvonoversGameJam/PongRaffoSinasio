@@ -23,11 +23,17 @@ _global_script_classes=[ {
 "class": "Platform",
 "language": "GDScript",
 "path": "res://scenes/Platform.gd"
+}, {
+"base": "Control",
+"class": "ScoreCounter",
+"language": "GDScript",
+"path": "res://scenes/ScoreCounter.gd"
 } ]
 _global_script_class_icons={
 "Ball": "",
 "Game": "",
-"Platform": ""
+"Platform": "",
+"ScoreCounter": ""
 }
 
 [application]
