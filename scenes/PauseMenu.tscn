@@ -1,0 +1,41 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://themes/default_theme.tres" type="Theme" id=1]
+[ext_resource path="res://scenes/PauseMenu.gd" type="Script" id=2]
+
+[node name="PauseMenu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 1 )
+script = ExtResource( 2 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -42.5
+margin_top = -38.0
+margin_right = 42.5
+margin_bottom = 38.0
+
+[node name="Continue" type="Button" parent="VBoxContainer"]
+margin_right = 85.0
+margin_bottom = 20.0
+text = "continue"
+
+[node name="MainMenu" type="Button" parent="VBoxContainer"]
+margin_top = 28.0
+margin_right = 85.0
+margin_bottom = 48.0
+text = "main menu"
+
+[node name="Quit" type="Button" parent="VBoxContainer"]
+margin_top = 56.0
+margin_right = 85.0
+margin_bottom = 76.0
+text = "quit"
+
+[connection signal="pressed" from="VBoxContainer/Continue" to="." method="_on_Continue_pressed"]
+[connection signal="pressed" from="VBoxContainer/MainMenu" to="." method="_on_MainMenu_pressed"]
+[connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_Quit_pressed"]

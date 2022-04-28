@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://scenes/PauseMenu.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/Game.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/GameManager.gd" type="Script" id=3]
+
+[node name="GameManager" type="Node"]
+pause_mode = 2
+script = ExtResource( 3 )
+
+[node name="Game" parent="." instance=ExtResource( 2 )]
+pause_mode = 1
+
+[node name="PauseMenu" parent="." instance=ExtResource( 1 )]
+visible = false
+
+[connection signal="main_menu" from="PauseMenu" to="." method="_on_PauseMenu_main_menu"]
+[connection signal="unpause" from="PauseMenu" to="." method="_on_PauseMenu_unpause"]
