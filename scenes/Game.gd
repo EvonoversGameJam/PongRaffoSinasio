@@ -6,11 +6,15 @@ signal players_score(score_1, score_2)
 onready var platform_one: Platform = get_node("Platform")
 onready var platform_two: Platform = get_node("Platform2")
 onready var ball_hit: AudioStreamPlayer = get_node("BallHit")
+onready var wistle_blow: AudioStreamPlayer = get_node("WistleBlow")
 
 onready var ball: Ball = get_node("Ball")
 
 var _top_left := Vector2(0,0)
 var _bottom_right := Vector2(1024,600)
+
+var player_one_initial_position := Vector2(24, 300)
+var player_two_initial_position := Vector2(1000, 300)
 
 var score_1 = 0
 var score_2 = 0
@@ -18,6 +22,10 @@ var score_2 = 0
 func _ready():
 	platform_one.set_player_number('_one')
 	platform_two.set_player_number('_two')
+	platform_one.position = player_one_initial_position
+	platform_two.position = player_two_initial_position
+	wistle_blow.play()
+	
 
 func _process(delta: float) -> void:
 

@@ -17,3 +17,5 @@ func set_score_2(value):
 func reset_scores():
 	set_score_1(0)
 	set_score_2(0)
+	
+	
