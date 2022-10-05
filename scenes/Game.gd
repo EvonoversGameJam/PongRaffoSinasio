@@ -5,6 +5,7 @@ signal players_score(score_1, score_2)
 
 onready var platform_one: Platform = get_node("Platform")
 onready var platform_two: Platform = get_node("Platform2")
+onready var ball_hit: AudioStreamPlayer = get_node("BallHit")
 
 onready var ball: Ball = get_node("Ball")
 
@@ -32,9 +33,11 @@ func _process(delta: float) -> void:
 	# Ball collision with borders
 	if ball_top.y <= self._top_left.y or ball_bottom.y >= self._bottom_right.y:
 		self.ball.direction.y *= -1
+		ball_hit.play()
 	
 	if ball_left.x <= self._top_left.x or ball_right.x >= self._bottom_right.x:
 		self.ball.direction.x *= -1
+		ball_hit.play()
 		if ball_left.x <= self._top_left.x:
 			score_2 += 1
 			emit_signal("players_score", score_1, score_2)
@@ -48,6 +51,7 @@ func _check_collision(platform: Platform, ball_position: Vector2) -> void:
 	var direction = platform.collides(ball_position)
 	if direction != Vector2.ZERO:
 		self.ball.direction = direction
+		ball_hit.play()
 
 func _check_platform_collision(platform):
 	self._check_collision(platform, self.ball.bottom.global_position)
