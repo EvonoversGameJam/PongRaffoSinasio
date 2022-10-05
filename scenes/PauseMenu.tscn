@@ -20,20 +20,20 @@ margin_right = 42.5
 margin_bottom = 38.0
 
 [node name="Continue" type="Button" parent="VBoxContainer"]
-margin_right = 85.0
-margin_bottom = 20.0
+margin_right = 112.0
+margin_bottom = 25.0
 text = "continue"
 
 [node name="MainMenu" type="Button" parent="VBoxContainer"]
-margin_top = 28.0
-margin_right = 85.0
-margin_bottom = 48.0
+margin_top = 33.0
+margin_right = 112.0
+margin_bottom = 58.0
 text = "main menu"
 
 [node name="Quit" type="Button" parent="VBoxContainer"]
-margin_top = 56.0
-margin_right = 85.0
-margin_bottom = 76.0
+margin_top = 66.0
+margin_right = 112.0
+margin_bottom = 91.0
 text = "quit"
 
 [connection signal="pressed" from="VBoxContainer/Continue" to="." method="_on_Continue_pressed"]

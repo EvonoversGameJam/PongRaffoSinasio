@@ -32,21 +32,21 @@ margin_right = 36.0
 margin_bottom = 42.0
 
 [node name="Play" type="Button" parent="VBoxContainer"]
-margin_right = 72.0
-margin_bottom = 20.0
+margin_right = 98.0
+margin_bottom = 25.0
 text = "Play 1vs1"
 
 [node name="Settings" type="Button" parent="VBoxContainer"]
-margin_top = 28.0
-margin_right = 72.0
-margin_bottom = 48.0
+margin_top = 33.0
+margin_right = 98.0
+margin_bottom = 58.0
 disabled = true
 text = "Settings"
 
 [node name="Quit" type="Button" parent="VBoxContainer"]
-margin_top = 56.0
-margin_right = 72.0
-margin_bottom = 76.0
+margin_top = 66.0
+margin_right = 98.0
+margin_bottom = 91.0
 text = "Quit"
 
 [connection signal="pressed" from="VBoxContainer/Play" to="." method="_on_Play_pressed"]
