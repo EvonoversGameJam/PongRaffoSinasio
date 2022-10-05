@@ -15,13 +15,13 @@ func _process(delta: float) -> void:
 	if _player_number != null:
 		var direction := (self.global_position - to_global(self._forward)).normalized()
 		if Input.is_action_pressed("platform_right"+_player_number):
-			self.position += _move_platform(direction, -90)
-		if Input.is_action_pressed("platform_left"+_player_number):
-			self.position += _move_platform(direction, 90)
-		if Input.is_action_pressed("platform_down"+_player_number):
-			self.position += _move_platform(direction, 0)
-		if Input.is_action_pressed("platform_up"+_player_number):
 			self.position += _move_platform(direction, 180)
+		if Input.is_action_pressed("platform_left"+_player_number):
+			self.position += _move_platform(direction, 0)
+		if Input.is_action_pressed("platform_down"+_player_number):
+			self.position += _move_platform(direction, -90)
+		if Input.is_action_pressed("platform_up"+_player_number):
+			self.position += _move_platform(direction, 90)
 		if Input.is_action_pressed("platform_rotate_left"+_player_number):
 			self.rotation_degrees -= rotation_velocity * delta
 		if Input.is_action_pressed("platform_rotate_right"+_player_number):

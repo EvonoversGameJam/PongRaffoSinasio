@@ -66,9 +66,14 @@ func _process(delta: float) -> void:
 		if 	ball_right.x >= self._bottom_right.x:
 			score_1 += 1
 			emit_signal("players_score", score_1, score_2)
-
-
-
+			
+	# Limit the movement of the two platform to the game area
+	
+	platform_one.position.x = clamp(platform_one.position.x, _top_left.x + 20, _bottom_right.x - 20)
+	platform_two.position.x = clamp(platform_two.position.x, _top_left.x + 20, _bottom_right.x - 20)
+	platform_one.position.y = clamp(platform_one.position.y, _top_left.y + 100, _bottom_right.y - 100)
+	platform_two.position.y = clamp(platform_two.position.y, _top_left.y + 100, _bottom_right.y - 100)
+		
 func _check_collision(platform: Platform, ball_position: Vector2) -> void:
 	var direction = platform.collides(ball_position)
 	if direction != Vector2.ZERO:
@@ -80,3 +85,4 @@ func _check_platform_collision(platform):
 	self._check_collision(platform, self.ball.top.global_position)
 	self._check_collision(platform, self.ball.left.global_position)
 	self._check_collision(platform, self.ball.right.global_position)
+
