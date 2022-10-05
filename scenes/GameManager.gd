@@ -22,3 +22,9 @@ func _on_PauseMenu_main_menu():
 func _on_Game_players_score(score_1, score_2):
 	score_counter.set_score_1(score_1)
 	score_counter.set_score_2(score_2)
+
+
+func _on_PauseMenu_restart() -> void:
+	$PauseMenu.hide()
+	$Game.init()
+	get_tree().paused = false

@@ -12,11 +12,12 @@ script = ExtResource( 3 )
 [node name="Game" parent="." instance=ExtResource( 2 )]
 pause_mode = 1
 
+[node name="ScoreCounter" parent="." instance=ExtResource( 4 )]
+
 [node name="PauseMenu" parent="." instance=ExtResource( 1 )]
 visible = false
 
-[node name="ScoreCounter" parent="." instance=ExtResource( 4 )]
-
 [connection signal="players_score" from="Game" to="." method="_on_Game_players_score"]
 [connection signal="main_menu" from="PauseMenu" to="." method="_on_PauseMenu_main_menu"]
+[connection signal="restart" from="PauseMenu" to="." method="_on_PauseMenu_restart"]
 [connection signal="unpause" from="PauseMenu" to="." method="_on_PauseMenu_unpause"]

@@ -1,5 +1,7 @@
 extends Control
+
 signal unpause
+signal restart
 signal main_menu
 
 # Called when the node enters the scene tree for the first time.
@@ -22,3 +24,7 @@ func _on_MainMenu_pressed():
 
 func _on_Quit_pressed():
 	get_tree().quit()
+
+
+func _on_Restart_pressed() -> void:
+	emit_signal("restart")
