@@ -1,0 +1,37 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://scenes/GameOver.gd" type="Script" id=1]
+
+[node name="GameOver" type="Control"]
+margin_right = 40.0
+margin_bottom = 40.0
+script = ExtResource( 1 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_right = 1026.0
+margin_bottom = 599.0
+color = Color( 0.176471, 0.14902, 0.14902, 0.882353 )
+
+[node name="Label" type="Label" parent="."]
+margin_left = 460.0
+margin_top = 130.0
+margin_right = 533.0
+margin_bottom = 144.0
+text = "Game Over"
+
+[node name="Pleieghein" type="Button" parent="."]
+margin_left = 428.0
+margin_top = 208.0
+margin_right = 552.0
+margin_bottom = 228.0
+text = "Pleieghein"
+
+[node name="Quit" type="Button" parent="."]
+margin_left = 429.0
+margin_top = 266.0
+margin_right = 553.0
+margin_bottom = 286.0
+text = "Basta!!!"
+
+[connection signal="mouse_entered" from="Pleieghein" to="." method="_on_PleiegheinButton_mouse_entered"]
+[connection signal="pressed" from="Quit" to="." method="_on_Quit_pressed"]

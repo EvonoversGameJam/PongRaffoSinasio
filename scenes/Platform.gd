@@ -11,7 +11,7 @@ onready var bottom_right: Position2D = get_node("BottomRight")
 var _forward: Vector2 = Vector2.UP
 var _player_number = null
 
-func _process(delta: float) -> void:
+func _process(delta):
 	if _player_number != null:
 		var direction := (self.global_position - to_global(self._forward)).normalized()
 		if Input.is_action_pressed("platform_right"+_player_number):
