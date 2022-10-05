@@ -34,6 +34,9 @@ func init() -> void:
 	platform_two.rotation_degrees = -90
 
 	ball.position = Vector2(512, 300)
+	
+	score_1 = 0
+	score_2 = 0
 
 	wistle_blow.play()
 

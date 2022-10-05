@@ -25,6 +25,7 @@ func _on_Game_players_score(score_1, score_2):
 
 
 func _on_PauseMenu_restart() -> void:
-	$PauseMenu.hide()
+	$ScoreCounter.reset_scores()
 	$Game.init()
+	$PauseMenu.hide()
 	get_tree().paused = false
