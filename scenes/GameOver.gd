@@ -1,5 +1,9 @@
 extends Control
+signal restart
 
+onready var label = $MarginContainer/Label
+onready var pleieghein_btn = $VBoxContainer/Pleieghein
+onready var quit_btn = $VBoxContainer/Quit
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -7,18 +11,22 @@ func _ready():
 
 
 func set_text(text):
-	$Label.text = text
+	label.text = text
 
 
 
-func _on_PleiegheinButton_mouse_entered():
+func _on_Pleieghein_mouse_entered():
 	var values = [-1, 1]
 	var space_amount = (values[randi() % 2] * 100)
-	$Pleieghein.margin_left += space_amount
-	$Pleieghein.margin_bottom += space_amount
-	$Pleieghein.margin_right += space_amount
-	$Pleieghein.margin_top += space_amount
+	pleieghein_btn.margin_left += space_amount
+	pleieghein_btn.margin_bottom += space_amount
+	pleieghein_btn.margin_right += space_amount
+	pleieghein_btn.margin_top += space_amount
 
 
 func _on_Quit_pressed():
 	get_tree().quit()
+
+
+func _on_Pleieghein_pressed():
+	emit_signal("restart")
